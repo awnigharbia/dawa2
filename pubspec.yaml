@@ -1,0 +1,100 @@
+name: dawa2
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  appointments_api:
+    path: packages/appointments_api
+  authentication_api:
+    path: packages/authentication_api
+  category_api:
+    path: packages/category_api
+  clinic_api:
+    path: packages/clinic_api
+  geoflutterfire:
+    path: packages/GeoFlutterFire
+  settings_api:
+    path: packages/settings_api
+  user_api:
+    path: packages/user_api
+  country_pickers:
+    git:
+      url: git://github.com/justkawal/country_pickers.git
+      ref: master
+  animations: ^2.0.0
+  bloc: ^7.0.0-nullsafety.3
+  bot_toast: ^4.0.0+1
+  built_collection: ^5.0.0
+  cached_network_image: ^3.0.0-nullsafety
+  cloud_firestore: ^1.0.0
+  cupertino_icons: ^1.0.2
+  dartz: ^0.10.0-nullsafety.1
+  eva_icons_flutter: ^2.0.1
+  firebase_auth: ^1.0.0
+  firebase_core: ^1.0.0
+  fluro: ^2.0.3
+  flutter_bloc: ^7.0.0-nullsafety.3
+  flutter_rating_bar: ^4.0.0
+  flutter_swiper: ^1.1.6
+  formz: ^0.4.0-nullsafety.0
+  freezed_annotation: ^0.14.0
+  geolocator: ^7.0.1
+  get_it: ^6.0.0
+  google_fonts: ^2.0.0
+  google_maps_flutter: ^2.0.1
+  hive: ^2.0.0
+  hive_flutter: ^1.0.0
+  http: ^0.13.0
+  image_picker: ^0.7.2
+  intl: ^0.17.0
+  introduction_screen: ^1.0.9
+  meta: ^1.3.0
+  pedantic: ^1.11.0
+  pinput: ^1.1.0
+  provider: ^5.0.0-nullsafety.5
+  reactive_forms: ^9.1.0
+  shimmer: ^2.0.0-nullsafety.0
+  timeago: ^3.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  bloc_test: ^8.0.0-nullsafety.2
+  build_runner: ^1.11.5
+  flutter_launcher_icons: ^0.9.0
+  flutter_native_splash: ^1.0.3
+  freezed: ^0.14.0+1
+  mockito: ^5.0.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/app-icon.png"
+  adaptive_icon_background: "#ffffff"
+
+flutter_native_splash:
+  image: assets/app-icon.png
+  color: "#ffffff"
+  fill: true
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/lang/ar.json
+    - lib/lang/en.json
+    - assets/
+  fonts:
+    - family: Droid
+      fonts:
+        - asset: fonts/custom_font.ttf
