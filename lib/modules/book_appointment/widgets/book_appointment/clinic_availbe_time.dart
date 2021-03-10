@@ -1,4 +1,5 @@
 import 'package:clinic_api/clinic_api.dart' as clinic_api;
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets.dart';
@@ -53,19 +54,19 @@ class __ClinicAvailableTimeState extends State<ClinicAvailableTime> {
       children: [
         morningHours.isNotEmpty
             ? ClinicTimeSection(
-                title: "Morning",
+                title: Localization.of(context)!.tr("morning")!,
                 timeList: morningHours,
               )
             : SizedBox.shrink(),
         dayHours.isNotEmpty
             ? ClinicTimeSection(
-                title: "Day",
+                title: Localization.of(context)!.tr("day")!,
                 timeList: dayHours,
               )
             : SizedBox.shrink(),
         eveningHours.isNotEmpty
             ? ClinicTimeSection(
-                title: "Evening",
+                title: Localization.of(context)!.tr("evening")!,
                 timeList: eveningHours,
               )
             : SizedBox.shrink(),

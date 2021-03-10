@@ -1,8 +1,8 @@
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
-import 'package:dawa2/config/router/route_name_builder.dart';
 import 'package:dawa2/core/utils/common.dart';
 import 'package:dawa2/core/utils/toast/toast.dart';
 import 'package:dawa2/core/utils/utils.dart';
@@ -19,7 +19,7 @@ class EditAccountName extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(EvaIcons.arrowBackOutline),
+          icon: Icon(LocaleIcon.backArrow(context)),
         ),
         actions: [
           _NextBtn(),
@@ -39,7 +39,7 @@ class EditAccountNameForm extends StatelessWidget {
           Navigator.pop(context);
         }
         if (state.status.isSubmissionFailure) {
-          Toast.showToast("Cannot edit name.");
+          Toast.showToast(Localization.of(context)!.tr("faildToUpdate")!);
         }
       },
       child: SizedBox(
@@ -65,14 +65,14 @@ class _TopHeader extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "Edit Your Name",
+          Localization.of(context)!.tr("editNameTitle")!,
           style: Theme.of(context).textTheme.headline6,
         ),
         Spaces().smallSpace(),
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.8,
           child: Text(
-            "Where others can see your name when you rate clinics.",
+            Localization.of(context)!.tr("editNameSubtitle")!,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyText1,
           ),
@@ -99,7 +99,7 @@ class _NameInput extends StatelessWidget {
             decoration: textFieldDecoration(
               context: context,
             ).copyWith(
-              hintText: "Your name",
+              hintText: Localization.of(context)?.tr("yourName"),
               contentPadding: EdgeInsets.symmetric(horizontal: 8.0),
             ),
           ),
@@ -130,7 +130,7 @@ class _NextBtn extends StatelessWidget {
               child: state.status.isSubmissionInProgress
                   ? Common.buildBtnLoader()
                   : Text(
-                      "Save",
+                      Localization.of(context)!.tr("save")!,
                       style: TextStyle(
                           color: ColorSchema.green,
                           fontWeight: FontWeight.w600),

@@ -1,3 +1,4 @@
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:clinic_api/clinic_api.dart' as clinic_api;
@@ -23,7 +24,8 @@ class ClinicService extends StatelessWidget {
             height: size!.height * 0.2,
             width: size.width,
             child: services!.isEmpty
-                ? Center(child: Text("No Services yet"))
+                ? Center(
+                    child: Text(Localization.of(context!)!.tr("noServices")!))
                 : ListView.separated(
                     padding:
                         EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),

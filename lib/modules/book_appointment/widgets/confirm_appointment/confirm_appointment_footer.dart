@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -22,14 +23,13 @@ class ConfirmAppointmentFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dateFormat = DateFormat("d MMMM y")
-        .format(confirmAppointmentDetail!.appointmentDate!);
-    final formatedTime = DateFormat("jm").format(DateTime(
-        0,
-        0,
-        0,
-        confirmAppointmentDetail!.appointmentTime!.hour,
-        confirmAppointmentDetail!.appointmentTime!.minute));
+    final dateFormat =
+        DateFormat("d MMMM y", Localization.of(context)!.locale.languageCode)
+            .format(confirmAppointmentDetail!.appointmentDate!);
+    final formatedTime =
+        DateFormat("jm", Localization.of(context)!.locale.languageCode).format(
+            DateTime(0, 0, 0, confirmAppointmentDetail!.appointmentTime!.hour,
+                confirmAppointmentDetail!.appointmentTime!.minute));
 
     return BlocListener<BookAppointmentCubit, BookAppointmentState>(
       listener: (context, state) {
@@ -86,7 +86,7 @@ class ConfirmAppointmentFooter extends StatelessWidget {
                 Spaces().meduimSpace(),
                 Row(
                   children: [
-                    Text("Time",
+                    Text(Localization.of(context)!.tr("time")!,
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1!
@@ -102,7 +102,7 @@ class ConfirmAppointmentFooter extends StatelessWidget {
                 Spaces().smallSpace(),
                 Row(
                   children: [
-                    Text("Date",
+                    Text(Localization.of(context)!.tr("date")!,
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1!
@@ -172,7 +172,7 @@ class _BookAppointmentConfirmBtn extends StatelessWidget {
                 child: state.status.isSubmissionInProgress
                     ? Common.buildBtnLoader()
                     : Text(
-                        "Confirm Appointment",
+                        Localization.of(context)!.tr("confirmAppointment")!,
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),

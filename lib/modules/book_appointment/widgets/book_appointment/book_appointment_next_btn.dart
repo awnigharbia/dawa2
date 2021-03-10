@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:clinic_api/clinic_api.dart';
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dawa2/config/router/route_name_builder.dart';
@@ -77,7 +78,7 @@ class BookAppointmentNext extends StatelessWidget {
                     color: ColorSchema.green,
                     splashColor: Colors.transparent,
                     child: Text(
-                      "Next",
+                      Localization.of(context)!.tr("next")!,
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),

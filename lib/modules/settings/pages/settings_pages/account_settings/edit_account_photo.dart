@@ -18,7 +18,7 @@ class EditProfileImage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(EvaIcons.arrowBackOutline),
+          icon: Icon(LocaleIcon.backArrow(context)),
         ),
         elevation: 0.0,
         actions: [_ActionBtn()],

@@ -1,4 +1,5 @@
 import 'package:clinic_api/clinic_api.dart' as clinic_repostiroy;
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dawa2/config/router/route_name_builder.dart';
@@ -62,7 +63,7 @@ class _EmptyReviews extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Center(child: Text("Be the first review")),
+      child: Center(child: Text(Localization.of(context)!.tr("firstReview")!)),
     );
   }
 }
@@ -77,7 +78,9 @@ class _ReviewListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final reviewTime = timeago.format(review!.createdAt!);
+    timeago.setLocaleMessages('ar', timeago.ArMessages());
+    final reviewTime = timeago.format(review!.createdAt!,
+        locale: Localization.of(context)!.locale.languageCode);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -154,7 +157,7 @@ class ReviewsHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Reviews",
+          Localization.of(context)!.tr("reviews")!,
           style: Theme.of(context).textTheme.subtitle1!.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 18.0,
@@ -166,7 +169,7 @@ class ReviewsHeader extends StatelessWidget {
                 arguments: clinic);
           },
           child: Text(
-            "Write a review",
+            Localization.of(context)!.tr("writeReview")!,
             style: Theme.of(context)
                 .textTheme
                 .bodyText2!

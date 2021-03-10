@@ -1,3 +1,4 @@
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:dawa2/core/utils/utils.dart';
@@ -27,7 +28,7 @@ class _BookAppointmentSetupState extends State<BookAppointmentSetup> {
           },
           icon: Icon(EvaIcons.arrowBackOutline),
         ),
-        title: Text("Make Appointment"),
+        title: Text(Localization.of(context)!.tr("makeAppointment")!),
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
@@ -61,7 +62,8 @@ class _BookAppointmentBody extends StatelessWidget {
           children: [
             MakeAppointmentClinicSection(bookAppointment: bookAppointment!),
             Spaces().meduimSpace(),
-            MakeAppointmentSectionTitle(title: "Services"),
+            MakeAppointmentSectionTitle(
+                title: Localization.of(context)!.tr("services")!),
             ClinicService(services: bookAppointment!.services!),
             Spaces().meduimSpace(),
             Container(
@@ -76,7 +78,8 @@ class _BookAppointmentBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MakeAppointmentSectionTitle(title: "Available Days"),
+                  MakeAppointmentSectionTitle(
+                      title: Localization.of(context)!.tr("availableDays")!),
                   Spaces().meduimSpace(),
                   ClinicAvailableDays(),
                   Spaces().meduimSpace(),

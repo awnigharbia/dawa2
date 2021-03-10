@@ -23,7 +23,7 @@ class ClinicAppBar extends StatelessWidget {
         onPressed: () {
           Navigator.pop(context);
         },
-        icon: Icon(EvaIcons.arrowBackOutline, color: Colors.white),
+        icon: Icon(LocaleIcon.backArrow(context)),
       ),
       flexibleSpace: FlexibleSpaceBar(
         stretchModes: [StretchMode.zoomBackground],

@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dawa2/core/utils/utils.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -66,7 +65,7 @@ class _ConfirmAppointmentState extends State<ConfirmAppointment> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(EvaIcons.arrowBackOutline),
+          icon: Icon(LocaleIcon.backArrow(context)),
         ),
       ),
       body: Stack(

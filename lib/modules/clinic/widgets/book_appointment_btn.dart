@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:clinic_api/clinic_api.dart' as clinic_api;
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dawa2/core/utils/utils.dart';
@@ -83,7 +84,7 @@ class _BookAppointmentBtn extends StatelessWidget {
                   color: ColorSchema.green,
                   splashColor: Colors.transparent,
                   child: Text(
-                    "Book Appointment",
+                    Localization.of(context)!.tr("bookAppointment")!,
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),

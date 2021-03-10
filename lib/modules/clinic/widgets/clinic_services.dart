@@ -1,3 +1,4 @@
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dawa2/core/utils/utils.dart';
@@ -18,7 +19,7 @@ class ClinicServices extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Services (${servicesIds!.length})",
+          "${Localization.of(context)!.tr("services")!} (${servicesIds!.length})",
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 18.0,

@@ -29,10 +29,7 @@ class SectionDetails extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
-            EvaIcons.arrowBackOutline,
-            color: Colors.black,
-          ),
+          icon: Icon(LocaleIcon.backArrow(context)),
         ),
       ),
       body: LocationBlocBuilder(

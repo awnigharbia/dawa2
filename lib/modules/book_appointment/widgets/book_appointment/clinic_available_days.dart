@@ -1,3 +1,4 @@
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:dawa2/core/utils/utils.dart';
@@ -99,7 +100,8 @@ class _AvailableDayItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "${DateFormat("E").format(nextWeek!)}".toUpperCase(),
+              "${DateFormat("E", Localization.of(context)!.locale.languageCode).format(nextWeek!)}"
+                  .toUpperCase(),
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     color: Colors.blueGrey,
                   ),

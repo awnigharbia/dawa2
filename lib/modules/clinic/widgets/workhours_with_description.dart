@@ -1,4 +1,5 @@
 import 'package:clinic_api/clinic_api.dart';
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -28,7 +29,8 @@ class WorkHoursWithDescription extends StatelessWidget {
             Spaces().smallHorozintolSpace(),
             RichText(
               text: TextSpan(
-                  text: clinic?.isOpen ?? false ? "Open " : "Closed ",
+                  text:
+                      "${Localization.of(context)!.tr(clinic?.isOpen ?? false ? "open" : "closed")} ",
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
                       color: clinic!.isOpen! ? ColorSchema.green : Colors.red,
                       fontWeight: FontWeight.bold),

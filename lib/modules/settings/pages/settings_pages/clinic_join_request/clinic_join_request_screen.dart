@@ -14,7 +14,7 @@ class ClinicJoinScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getCustomAppBar(
-        title: "Add your clinic",
+        title: Localization.of(context)?.tr("addYourClinic"),
         context: context,
         centerTitle: false,
         isDefaultBack: true,
@@ -53,7 +53,7 @@ class _SubmitBtn extends StatelessWidget {
     return BlocConsumer<ClinicJoinCubit, ClinicJoinState>(
       listener: (context, state) {
         if (state.status.isSubmissionSuccess) {
-          Toast.showToast("Join Request sent.");
+          Toast.showToast(Localization.of(context)!.tr("joinRequestSent")!);
         }
       },
       buildWhen: (prev, curr) => prev.status != curr.status,
@@ -64,7 +64,7 @@ class _SubmitBtn extends StatelessWidget {
               ? null
               : () async => await context.read<ClinicJoinCubit>().joinClinic(),
           isSubmit: state.status.isSubmissionInProgress,
-          name: "Join",
+          name: Localization.of(context)?.tr("join"),
         );
       },
     );
@@ -82,8 +82,8 @@ class _ContactNumberInput extends StatelessWidget {
           child: TextField(
             onChanged: context.read<ClinicJoinCubit>().onContactNumber,
             keyboardType: TextInputType.number,
-            decoration: textFieldDecoration(context: context)
-                .copyWith(hintText: "Contact number"),
+            decoration: textFieldDecoration(context: context).copyWith(
+                hintText: Localization.of(context)?.tr("contactNumber")),
           ),
         );
       },
@@ -101,8 +101,8 @@ class _OwnerNameInput extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.9,
           child: TextField(
             onChanged: context.read<ClinicJoinCubit>().onClinicOwner,
-            decoration: textFieldDecoration(context: context)
-                .copyWith(hintText: "Owner name"),
+            decoration: textFieldDecoration(context: context).copyWith(
+                hintText: Localization.of(context)?.tr("clinicOwner")),
           ),
         );
       },
@@ -121,7 +121,7 @@ class _NameInput extends StatelessWidget {
           child: TextField(
             onChanged: context.read<ClinicJoinCubit>().onClinicName,
             decoration: textFieldDecoration(context: context)
-                .copyWith(hintText: "Clinic name"),
+                .copyWith(hintText: Localization.of(context)?.tr("clinicName")),
           ),
         );
       },

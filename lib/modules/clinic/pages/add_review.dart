@@ -1,4 +1,5 @@
 import 'package:clinic_api/clinic_api.dart' as clinic_api;
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +29,7 @@ class _AddReviewState extends State<AddReview> {
         }
 
         if (state.status.isSubmissionFailure) {
-          Toast.showToast("Post faild.");
+          Toast.showToast(Localization.of(context)!.tr("postFaild")!);
         }
       },
       child: Scaffold(
@@ -82,13 +83,14 @@ class _ClinicDetail extends StatelessWidget {
         width: size!.width * 0.8,
         child: Column(
           children: [
-            Text("How was your experience with ${widget!.clinic!.name} ?",
-                style: Theme.of(context!).textTheme.headline6!.copyWith(
+            Text(
+                "${Localization.of(context!)!.tr("addReviewQTitle")!} ${widget!.clinic!.name} ?",
+                style: Theme.of(context).textTheme.headline6!.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Colors.black.withOpacity(0.8)),
                 textAlign: TextAlign.center),
             Spaces().smallSpace(),
-            Text("Your feedback matters",
+            Text(Localization.of(context)!.tr("addReviewQSubtitle")!,
                 style: TextStyle(color: Colors.black.withOpacity(0.7)))
           ],
         ),
@@ -110,7 +112,8 @@ class _WriteComment extends StatelessWidget {
         children: [
           Align(
               alignment: Alignment.centerLeft,
-              child: Text("Write a comment",
+              child: Text(
+                  Localization.of(context)!.tr("addReviewTextFieldTitle")!,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2!
@@ -200,7 +203,8 @@ class _SubmitBtn extends StatelessWidget {
                 },
           child: state.status.isSubmissionInProgress
               ? Common.buildBtnLoader()
-              : Text("Post", style: TextStyle(fontWeight: FontWeight.bold)),
+              : Text(Localization.of(context)!.tr("post")!,
+                  style: TextStyle(fontWeight: FontWeight.bold)),
         );
       },
     );

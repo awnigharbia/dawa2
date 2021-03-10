@@ -1,7 +1,7 @@
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dawa2/constants/constants.dart';
 import 'package:dawa2/core/utils/toast/toast.dart';
 import 'package:dawa2/core/utils/utils.dart';
 import 'package:formz/formz.dart';
@@ -12,7 +12,7 @@ class FeedbackScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getCustomAppBar(
-        title: "Feedback",
+        title: Localization.of(context)?.tr("feedback"),
         context: context,
         centerTitle: false,
         isDefaultBack: true,
@@ -44,7 +44,7 @@ class _SubmitBtn extends StatelessWidget {
     return BlocConsumer<FeedbackCubit, FeedbackState>(
       listener: (context, state) {
         if (state.status.isSubmissionSuccess) {
-          Toast.showToast("Feedback sent.");
+          Toast.showToast(Localization.of(context)!.tr("joinRequestSent")!);
         }
       },
       builder: (context, state) {
@@ -73,7 +73,7 @@ class _MessageInput extends StatelessWidget {
             onChanged: context.read<FeedbackCubit>().onMessageChanges,
             decoration: textFieldDecoration(
               context: context,
-            ).copyWith(hintText: "Your message here."),
+            ).copyWith(hintText: Localization.of(context)!.tr("message")),
           ),
         );
       },
@@ -94,7 +94,7 @@ class _TitleInput extends StatelessWidget {
             onChanged: context.read<FeedbackCubit>().onTitleChanges,
             decoration: textFieldDecoration(
               context: context,
-            ).copyWith(hintText: "Title"),
+            ).copyWith(hintText: Localization.of(context)!.tr("title")),
           ),
         );
       },
