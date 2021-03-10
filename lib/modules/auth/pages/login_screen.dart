@@ -78,7 +78,7 @@ class _Title extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "welcome",
+          Localization.of(context)!.tr("loginFormTitle")!,
           style: GoogleFonts.dosis(fontSize: 18, fontWeight: FontWeight.normal),
         ),
         Spaces().smallSpace(),
@@ -86,7 +86,7 @@ class _Title extends StatelessWidget {
           builder: (context, size) => SizedBox(
             width: size!.width * 0.8,
             child: Text(
-              "Fill the form to become our client",
+              Localization.of(context!)!.tr("loginFormSubtitle")!,
               style:
                   GoogleFonts.dosis(fontWeight: FontWeight.w700, fontSize: 32),
             ),

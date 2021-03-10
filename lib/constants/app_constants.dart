@@ -338,23 +338,24 @@ Applicable Law:
 
   static const aboutUsEN = """* Who are we? *
 
-Doctor Pet is an online platform concerned with the health of pets by bridging the distance between pet owners and veterinary medical care providers.
+Dawa2 is an online platform concerned with the health of humans by bridging the distance between people and health medical care providers.
 
 
 * Our Mission *
 
-Providing high quality veterinary medical services
+Providing high quality health medical services
 
 * Our goals *
 
-Easy access to veterinary medical care
-Spread awareness and concern for animal health
-Providing the finest veterinary medical services in partnership with veterinary medical clinics in the Kingdom
-Familiarizing pet owners with the medical clinics of each city so that they can obtain health care for the animal in a timely and high quality
-The possibility of selecting and reserving the appropriate veterinary clinic for each pet owner
+Easy access to health medical care
+Spread awareness and concern around people
+Providing the finest health medical services in partnership with veterinary medical clinics in the globe
+Familiarizing pet owners with the medical clinics of each city so that they can obtain health care for the people in a timely and high quality
+The possibility of selecting and reserving the appropriate health clinic for each user
 
 
-* Our vision *
+* Important information *
 
-Doctor Bit is a success story of a Saudi veterinarian who, through participating in his idea in the Hope Hackathon, which was organized by the Ministry of Communications and Information Technology in 2020, was nominated to win among the top 150 ideas in the digital health track after filtering more than 15,000 ideas, where he translated them into a reality to present the highest Quality of veterinary medical care, and improving the quality of veterinary medical services and animal health that are reflected in the quality of life and in line with the Kingdom's 2030 vision""";
+The current version is just a modeling of the beta version, so that errors can be detected and remedied before heading to the release of the final version
+""";
 }

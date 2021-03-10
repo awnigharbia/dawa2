@@ -1,3 +1,4 @@
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -39,9 +40,9 @@ class AppointmentListItem extends StatelessWidget {
           _AppointmentItemTime(appointmentData: appointmentData!),
           Spaces().meduimSpace(),
           _AppointmentItemInfo(appointmentData: appointmentData!),
-          isPassed!
-              ? SizedBox.shrink()
-              : _AppointmentItemAction(appointmentData: appointmentData!)
+          if (!isPassed!) Spaces().meduimSpace(),
+          if (!isPassed!)
+            _AppointmentItemAction(appointmentData: appointmentData!)
         ],
       ),
     );
@@ -72,7 +73,7 @@ class _AppointmentItemAction extends StatelessWidget {
                   appointmentId: appointmentData!.appointment!.id));
         },
         child: Text(
-          "Cancel",
+          Localization.of(context)!.tr("cancel")!,
           style: TextStyle(
             color: Colors.blueGrey.shade700,
             fontWeight: FontWeight.bold,
@@ -96,13 +97,14 @@ class _AppointmentItemInfo extends StatelessWidget {
     return Row(
       children: [
         CirceledCachedImage(imgUrl: appointmentData!.clinic!.imgUrl, size: 0.2),
-        Spaces().smallHorozintolSpace(),
+        Spaces().meduimHorozintolSpace(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(appointmentData!.clinic!.name!,
-                style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                      color: Colors.blueGrey,
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                      color: Colors.blueGrey.shade700,
+                      fontWeight: FontWeight.bold,
                     )),
             Spaces().smallSpace(),
             Text(appointmentData!.clinic!.location!,
@@ -125,14 +127,17 @@ class _AppointmentItemTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dateFormat = DateFormat("d MMMM y")
-        .format(appointmentData!.appointment!.appointmentDate);
-    final formatedTime = DateFormat("jm").format(DateTime(
-        0,
-        0,
-        0,
-        appointmentData!.appointment!.appointmentDate.hour,
-        appointmentData!.appointment!.appointmentDate.minute));
+    final dateFormat =
+        DateFormat("d MMMM y", Localization.of(context)?.locale.languageCode)
+            .format(appointmentData!.appointment!.appointmentDate);
+    final formatedTime =
+        DateFormat("jm", Localization.of(context)?.locale.languageCode).format(
+            DateTime(
+                0,
+                0,
+                0,
+                appointmentData!.appointment!.appointmentDate.hour,
+                appointmentData!.appointment!.appointmentDate.minute));
     return Text(
       "$formatedTime, $dateFormat",
       style: Theme.of(context).textTheme.bodyText1!.copyWith(

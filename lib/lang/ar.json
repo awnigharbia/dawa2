@@ -204,5 +204,15 @@
     "clinic":"العيادة",
     "makeAppointment":"إحجز الآن",
     "confirmAppointment":"تأكيد الحجز",
-    "date":"التاريخ"
+    "date":"التاريخ",
+    "pass":"المنتهية",
+    "cancel":"إلغاء",
+    "upcoming":"القادمة",
+    "loginFormTitle":"مرحبا بك",
+    "loginFormSubtitle":"قم بالتسجيل لكي تصبح عضواَ معنا",
+    "smsCodeInvalid":"الكود المدخل خاطىء",
+    "smsCodeFormTitle":"التحقق",
+    "smsCodeFormSubtitle":"لقد لقمنا بإرسال رمز التفعيل",
+    "smsCodeFormNo":"على الرقم:"
+    
 }

@@ -1,4 +1,5 @@
 import 'package:authentication_api/authentication_api.dart';
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
@@ -49,7 +50,7 @@ class SmsCodeForm extends StatelessWidget {
     return BlocListener<SmsCodeCubit, SmsCodeState>(
       listener: (context, state) {
         if (state.status.isSubmissionFailure) {
-          Toast.showToast("Sms code invalid");
+          Toast.showToast(Localization.of(context)!.tr("smsCodeInvalid")!);
         }
       },
       child: Scaffold(
@@ -97,7 +98,7 @@ class _Title extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "verification",
+          Localization.of(context)!.tr("smsCodeFormTitle")!,
           style: Theme.of(context)
               .textTheme
               .caption!
@@ -108,8 +109,8 @@ class _Title extends StatelessWidget {
           builder: (context, size) => SizedBox(
             width: size!.width * 0.9,
             child: Text(
-              "We sent you an sms code",
-              style: Theme.of(context!).textTheme.headline5!.copyWith(
+              Localization.of(context!)!.tr("smsCodeFormSubtitle")!,
+              style: Theme.of(context).textTheme.headline5!.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
             ),
@@ -118,7 +119,7 @@ class _Title extends StatelessWidget {
         Spaces().smallSpace(),
         RichText(
           text: TextSpan(
-            text: "On number: ",
+            text: "${Localization.of(context)!.tr("smsCodeFormNo")!} ",
             style: Theme.of(context).textTheme.bodyText1,
             children: [
               TextSpan(

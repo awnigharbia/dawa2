@@ -1,3 +1,4 @@
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -87,7 +88,8 @@ class _PassAppointments extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _AppointmentViewSectionTitle(
-                  title: "Pass (${appointments!.length})"),
+                  title:
+                      "${Localization.of(context)!.tr("pass")} (${appointments!.length})"),
               Spaces().meduimSpace(),
               AppointmentListView(appointments: appointments!, isPassed: true),
             ],
@@ -110,7 +112,8 @@ class _UpcomingAppointments extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _AppointmentViewSectionTitle(
-                  title: "Upcoming (${appointments!.length})"),
+                  title:
+                      "${Localization.of(context)!.tr("upcoming")} (${appointments!.length})"),
               Spaces().meduimSpace(),
               AppointmentListView(appointments: appointments!, isPassed: false),
             ],
