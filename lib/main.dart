@@ -112,7 +112,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final botToastBuilder = BotToastInit();
     return MaterialApp(
-      title: 'Lazzy Pet',
+      title: 'Dawa2',
       locale: _locale,
       navigatorKey: _navigatorKey,
       supportedLocales: [
