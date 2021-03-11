@@ -213,5 +213,8 @@
     "smsCodeInvalid":"Sms code invalid",
     "smsCodeFormTitle":"verification",
     "smsCodeFormSubtitle":"We sent you an sms code",
-    "smsCodeFormNo":"On number:"
+    "smsCodeFormNo":"On number:",
+    "choosePhotoModalTitle":"Add your profile photo",
+    "choosePhotoModalOptionOne":"Upload from gallery",
+    "choosePhotoModalOptionTwo": "Take a photo"
 }

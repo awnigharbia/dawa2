@@ -11,6 +11,7 @@ AppBar getCustomAppBar({
   bool? isDefaultBack,
   bool? centerTitle,
   bool removeBackgroundColor = false,
+  bool isLeading = true,
   PreferredSizeWidget? bottom,
 }) {
   return AppBar(
@@ -37,12 +38,14 @@ AppBar getCustomAppBar({
               Navigator.pop(context);
             },
           )
-        : IconButton(
-            icon: leading!,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+        : isLeading
+            ? IconButton(
+                icon: leading!,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )
+            : SizedBox.shrink(),
     actions: actions,
   );
 }

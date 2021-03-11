@@ -39,7 +39,7 @@ class _AdaptiveBottomNavigationScaffoldState
 
   void onTabSelected(int newIndex) {
     if (_currentlySelectedIndex == newIndex) {
-      widget.navigationBarItems![newIndex].navigatorKey!.currentState!
+      widget.navigationBarItems![newIndex].navigatorKey?.currentState!
           .popUntil((route) => route.isFirst);
     }
 

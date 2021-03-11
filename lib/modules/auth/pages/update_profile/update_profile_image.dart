@@ -27,7 +27,7 @@ class UpdateProfileImage extends StatelessWidget {
             Navigator.of(context).pushNamed(RouteNameBuilder.tabsResource);
           }
           if (state is UpdateFailure) {
-            Toast.showToast("Failt to update.");
+            Toast.showToast("Faild to update.");
           }
           if (state is SelectedPhoto) {
             Navigator.pop(context);

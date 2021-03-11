@@ -26,7 +26,7 @@ class _BookAppointmentSetupState extends State<BookAppointmentSetup> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(EvaIcons.arrowBackOutline),
+          icon: Icon(LocaleIcon.backArrow(context)),
         ),
         title: Text(Localization.of(context)!.tr("makeAppointment")!),
         backgroundColor: Colors.white,

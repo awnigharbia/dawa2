@@ -213,6 +213,9 @@
     "smsCodeInvalid":"الكود المدخل خاطىء",
     "smsCodeFormTitle":"التحقق",
     "smsCodeFormSubtitle":"لقد لقمنا بإرسال رمز التفعيل",
-    "smsCodeFormNo":"على الرقم:"
+    "smsCodeFormNo":"على الرقم:",
+    "choosePhotoModalTitle":"أرفق صورة خاصة بك",
+    "choosePhotoModalOptionOne":"الاستوديو",
+    "choosePhotoModalOptionTwo": "الكاميرا"
     
 }

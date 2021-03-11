@@ -56,7 +56,7 @@ class SmsCodeForm extends StatelessWidget {
       child: Scaffold(
         appBar: getCustomAppBar(
           context: context,
-          isDefaultBack: true,
+          isLeading: false,
           removeBackgroundColor: true,
         ),
         body: SingleChildScrollView(

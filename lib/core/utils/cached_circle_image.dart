@@ -28,7 +28,7 @@ class CirceledCachedImage extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: imgUrl ?? "",
               errorWidget: (err, stack, child) => Image.asset(
-                "assets/logo.png",
+                "assets/app-icon.png",
                 fit: BoxFit.contain,
               ),
               fit: BoxFit.cover,

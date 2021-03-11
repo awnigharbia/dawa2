@@ -1,3 +1,4 @@
+import 'package:dawa2/localization/doctor_pet_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dawa2/core/utils/utils.dart';
@@ -27,7 +28,7 @@ class ChoosePhotoOptionModal extends StatelessWidget {
           ),
           Spaces().highSpace(),
           Text(
-            "Add your profile photo",
+            Localization.of(context)!.tr("choosePhotoModalTitle")!,
             style: Theme.of(context)
                 .textTheme
                 .bodyText1!
@@ -37,7 +38,7 @@ class ChoosePhotoOptionModal extends StatelessWidget {
           _choosePhotoOption(
             context,
             icon: Icons.image,
-            text: "Upload from gallery",
+            text: Localization.of(context)!.tr("choosePhotoModalOptionOne"),
             onTap: () {
               context
                   .read<UpdateProfilePhotoBloc>()
@@ -52,7 +53,7 @@ class ChoosePhotoOptionModal extends StatelessWidget {
           _choosePhotoOption(
             context,
             icon: Icons.camera_alt,
-            text: "Take a photo",
+            text: Localization.of(context)!.tr("choosePhotoModalOptionTwo"),
             onTap: () {
               context
                   .read<UpdateProfilePhotoBloc>()

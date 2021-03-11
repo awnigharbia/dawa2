@@ -37,6 +37,14 @@ void setupRouter() {
       ),
     )
     ..define(
+      "${RouteNameBuilder.onBoarding}",
+      handler: Handler(
+        handlerFunc: (context, params) {
+          return OnBoardingScreen();
+        },
+      ),
+    )
+    ..define(
       "${RouteNameBuilder.smsCodeVerifyResource}/:phoneNo/:verificationId/:resendToken",
       handler: Handler(handlerFunc: (context, params) {
         String phoneNo = params['phoneNo']![0];

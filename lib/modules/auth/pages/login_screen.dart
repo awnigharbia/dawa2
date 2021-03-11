@@ -43,7 +43,7 @@ class LoginForm extends StatelessWidget {
       child: Scaffold(
         appBar: getCustomAppBar(
           context: context,
-          isDefaultBack: true,
+          isLeading: false,
           removeBackgroundColor: true,
         ),
         backgroundColor: ColorSchema.scaffoldbackground,
@@ -84,7 +84,7 @@ class _Title extends StatelessWidget {
         Spaces().smallSpace(),
         OrientationUtil(
           builder: (context, size) => SizedBox(
-            width: size!.width * 0.8,
+            width: size!.width * 0.9,
             child: Text(
               Localization.of(context!)!.tr("loginFormSubtitle")!,
               style:

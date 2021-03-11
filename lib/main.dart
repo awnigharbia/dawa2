@@ -127,6 +127,8 @@ class _MyAppState extends State<MyApp> {
       ],
       localeResolutionCallback: _localeUtil!.localeCallback,
       builder: (context, child) {
+        LocalDB _localDB = locator<LocalDB>();
+        _localDB.box("onBoarding");
         var lang = Localizations.localeOf(context).languageCode;
 
         child = Theme(
@@ -161,9 +163,13 @@ class _MyAppState extends State<MyApp> {
                   }
                 },
                 unAuthenticated: (_) {
-                  FluroRouter.appRouter.navigateTo(
-                      _navigator!.context, RouteNameBuilder.loginResource,
-                      clearStack: true);
+                  _localDB.get("seen", defaultValue: false)
+                      ? FluroRouter.appRouter.navigateTo(
+                          _navigator!.context, RouteNameBuilder.loginResource,
+                          clearStack: true)
+                      : FluroRouter.appRouter.navigateTo(
+                          _navigator!.context, RouteNameBuilder.onBoarding,
+                          clearStack: true);
                 });
           },
           child: child,

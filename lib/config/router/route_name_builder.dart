@@ -5,7 +5,7 @@ class RouteNameBuilder {
   static const settingsResource = "settings";
   static const clinicResource = "clinic";
   static const tabsResource = "tabs";
-  static const startResource = "onBoarding";
+  static const onBoarding = "onBoarding";
   static const mapResource = 'map';
   static const loginResource = "onBoarding/login";
   static const signupResource = "onBoarding/signup";

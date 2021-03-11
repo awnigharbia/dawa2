@@ -1,6 +1,5 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:flutter/material.dart';
 import 'package:dawa2/core/utils/utils.dart';
+import 'package:flutter/material.dart';
 
 PreferredSize appbar(BuildContext context, String title) {
   return PreferredSize(
@@ -10,7 +9,7 @@ PreferredSize appbar(BuildContext context, String title) {
       title: title,
       centerTitle: false,
       leading: IconButton(
-        icon: Icon(EvaIcons.arrowBackOutline),
+        icon: Icon(LocaleIcon.backArrow(context)),
         onPressed: () {
           Navigator.pop(context);
         },
