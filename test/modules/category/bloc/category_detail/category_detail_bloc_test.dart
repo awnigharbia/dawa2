@@ -49,7 +49,8 @@ main() {
           act: (bloc) => bloc.add(CategoryDetailEvent.loadStarted()),
           expect: () => <CategoryDetailState>[
                 CategoryDetailState.loadSuccess(
-                    clinics: clinics, hasReachedMax: false),
+                    clinics: clinics,
+                    hasReachedMax: categoryRepository.hasReachedMax),
               ]);
 
       blocTest<CategoryDetailBloc, CategoryDetailState>(
@@ -67,7 +68,8 @@ main() {
               clinics: clinics, hasReachedMax: false),
           expect: () => <CategoryDetailState>[
                 CategoryDetailState.loadSuccess(
-                    clinics: moreClinics.build(), hasReachedMax: false),
+                    clinics: moreClinics.build(),
+                    hasReachedMax: categoryRepository.hasReachedMax),
               ]);
 
       blocTest<CategoryDetailBloc, CategoryDetailState>(
@@ -97,7 +99,8 @@ main() {
               bloc.add(CategoryDetailEvent.loadStarted(isRefresh: true)),
           expect: () => <CategoryDetailState>[
                 CategoryDetailState.loadSuccess(
-                    clinics: clinics, hasReachedMax: false),
+                    clinics: clinics,
+                    hasReachedMax: categoryRepository.hasReachedMax),
               ]);
 
       blocTest<CategoryDetailBloc, CategoryDetailState>(

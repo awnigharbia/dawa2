@@ -65,7 +65,11 @@ main() {
 
       blocTest<TopRatedClinicBloc, TopRatedClinicState>(
           'emit [loadSuccess] when top rated clinics load success when isRefresh true',
-          build: () => TopRatedClinicBloc(viewallRepository: clinicRepository),
+          build: () {
+            when(clinicRepository.getTopRatedClinics(isReset: true))
+                .thenAnswer((_) async => []);
+            return TopRatedClinicBloc(viewallRepository: clinicRepository);
+          },
           act: (bloc) =>
               bloc.add(TopRatedClinicEvent.loadStarted(isRefresh: true)),
           expect: () => <TopRatedClinicState>[

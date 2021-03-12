@@ -38,12 +38,18 @@ main() {
 
       blocTest<ViewallTopratedClinicBloc, ViewallTopratedClinicState>(
           'emit [loadSucces] when initial load success',
-          build: () =>
-              ViewallTopratedClinicBloc(viewallRepository: viewallRepository),
+          build: () {
+            when(viewallRepository.getTopRatedClinics(isReset: true))
+                .thenAnswer((_) async => []);
+            return ViewallTopratedClinicBloc(
+                viewallRepository: viewallRepository);
+          },
+          seed: () => ViewallTopratedClinicState.initial(),
           act: (bloc) => bloc.add(ViewallTopratedClinicEvent.loadStarted()),
           expect: () => <ViewallTopratedClinicState>[
                 ViewallTopratedClinicState.loadSuccess(
-                    clinics: clinics, hasReachedMax: false),
+                    clinics: clinics,
+                    hasReachedMax: viewallRepository.hasReachedMax),
               ]);
 
       blocTest<ViewallTopratedClinicBloc, ViewallTopratedClinicState>(
@@ -60,7 +66,8 @@ main() {
               clinics: clinics, hasReachedMax: false),
           expect: () => <ViewallTopratedClinicState>[
                 ViewallTopratedClinicState.loadSuccess(
-                    clinics: moreClinics.build(), hasReachedMax: false),
+                    clinics: moreClinics.build(),
+                    hasReachedMax: viewallRepository.hasReachedMax),
               ]);
 
       blocTest<ViewallTopratedClinicBloc, ViewallTopratedClinicState>(
@@ -88,7 +95,8 @@ main() {
               bloc.add(ViewallTopratedClinicEvent.loadStarted(isRefresh: true)),
           expect: () => <ViewallTopratedClinicState>[
                 ViewallTopratedClinicState.loadSuccess(
-                    clinics: clinics, hasReachedMax: false),
+                    clinics: clinics,
+                    hasReachedMax: viewallRepository.hasReachedMax),
               ]);
 
       blocTest<ViewallTopratedClinicBloc, ViewallTopratedClinicState>(
