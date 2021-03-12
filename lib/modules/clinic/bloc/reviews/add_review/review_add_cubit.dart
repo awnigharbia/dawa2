@@ -41,4 +41,11 @@ class ReviewAddCubit extends Cubit<ReviewAddState> {
 
     emit(state.copyWith(comment: comment, status: Formz.validate([comment])));
   }
+
+  bool? isBtnValid() {
+    if (state.status.isValid && state.status.isValidated) {
+      return true;
+    }
+    return false;
+  }
 }

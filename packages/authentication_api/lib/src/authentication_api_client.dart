@@ -5,7 +5,7 @@ import 'package:user_api/user_api.dart';
 import 'phone_auth_service.dart';
 
 class AuthenticationApiClient {
-  AuthenticationApiClient({firebase_auth.FirebaseAuth firebaseAuth})
+  AuthenticationApiClient({firebase_auth.FirebaseAuth? firebaseAuth})
       : _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
         _authService = PhoneAuthService();
 
@@ -28,26 +28,26 @@ class AuthenticationApiClient {
     });
   }
 
-  firebase_auth.User get currentUser => _firebaseAuth.currentUser;
+  firebase_auth.User get currentUser => _firebaseAuth.currentUser!;
 
   /// Starts verification process with the provided [number]
   ///
   /// Throws an [AuthException] if process faild
-  Future<PhoneAuthResponse> verifyPhone(String phone) async {
+  Future<PhoneAuthResponse> verifyPhone(String? phone) async {
     assert(phone != null);
 
-    return await _authService.verifyNumber(phone);
+    return await _authService.verifyNumber(phone!);
   }
 
   /// Auth user with provided [verificationId, resendToken, smsCode]
   ///
   /// Throws an [AuthException] if auth faild
   Future<void> authWithPhone(
-      String verificationId, int resendToken, String smsCode) async {
+      String? verificationId, int? resendToken, String? smsCode) async {
     assert(verificationId != null && resendToken != null && smsCode != null);
 
-    final credential =
-        await _authService.getCredentials(verificationId, resendToken, smsCode);
+    final credential = await _authService.getCredentials(
+        verificationId!, resendToken!, smsCode!);
 
     await _authService.auth(credential);
   }
@@ -67,7 +67,7 @@ extension on firebase_auth.User {
       photo: photoURL ?? "",
       phone: phoneNumber,
       createdAt: metadata.creationTime,
-      isNew: DateTime.now().difference(metadata.creationTime).inDays <= 2,
+      isNew: DateTime.now().difference(metadata.creationTime!).inDays <= 2,
     );
   }
 }

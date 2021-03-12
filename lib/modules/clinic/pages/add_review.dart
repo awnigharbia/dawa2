@@ -196,11 +196,11 @@ class _SubmitBtn extends StatelessWidget {
           focusColor: Colors.transparent,
           highlightColor: Colors.transparent,
           textColor: ColorSchema.green,
-          onPressed: state.status.isInvalid
-              ? null
-              : () {
+          onPressed: context.read<ReviewAddCubit>().isBtnValid()!
+              ? () {
                   context.read<ReviewAddCubit>().addReview(clinicId!);
-                },
+                }
+              : null,
           child: state.status.isSubmissionInProgress
               ? Common.buildBtnLoader()
               : Text(Localization.of(context)!.tr("post")!,

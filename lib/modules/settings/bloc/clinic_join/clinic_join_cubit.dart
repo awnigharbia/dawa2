@@ -36,20 +36,34 @@ class ClinicJoinCubit extends Cubit<ClinicJoinState> {
     final clinicName = ClinicName.dirty(value);
 
     emit(state.copyWith(
-        clinicName: clinicName, status: Formz.validate([clinicName])));
+        clinicName: clinicName,
+        status: Formz.validate(
+            [clinicName, state.clinicOwner, state.contactOwner])));
   }
 
   void onClinicOwner(String value) {
     final clinicOwner = ClinicOwner.dirty(value);
 
     emit(state.copyWith(
-        clinicOwner: clinicOwner, status: Formz.validate([clinicOwner])));
+        clinicOwner: clinicOwner,
+        status: Formz.validate(
+            [state.clinicName, state.contactOwner, clinicOwner])));
   }
 
   void onContactNumber(String value) {
     final contactNumber = ContactNumber.dirty(value);
 
     emit(state.copyWith(
-        contactOwner: contactNumber, status: Formz.validate([contactNumber])));
+        contactOwner: contactNumber,
+        status: Formz.validate(
+            [state.clinicName, state.clinicOwner, contactNumber])));
+  }
+
+  bool? isBtnValid() {
+    if (state.status.isValid && state.status.isValidated) {
+      return true;
+    }
+
+    return false;
   }
 }

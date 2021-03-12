@@ -28,7 +28,7 @@ class MockFirebaseUser extends Mock implements firebase_auth.User {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   final List<MethodCall> log = <MethodCall>[];
-  FirebaseAuthPlatform auth;
+  FirebaseAuthPlatform? auth;
 
   MethodChannelFirebase.channel.setMockMethodCallHandler((call) async {
     if (call.method == 'Firebase#initializeCore') {
@@ -61,7 +61,7 @@ void main() {
 
   group('AuthenticationRepository', () {
     firebase_auth.FirebaseAuth firebaseAuth;
-    AuthenticationApiClient authenticationRepository;
+    AuthenticationApiClient? authenticationRepository;
 
     setUpAll(() async {
       FirebaseApp app = await Firebase.initializeApp();
@@ -93,24 +93,24 @@ void main() {
       const String testSmsCode = '123456';
       final Duration testTimeout = Duration(seconds: 30);
       test('throws AssertionError when phone is null', () async {
-        expect(() => authenticationRepository.verifyPhone(null),
+        expect(() => authenticationRepository!.verifyPhone(null),
             throwsAssertionError);
       });
 
       test(
           'throws AssertionError when [verificationCode, resendToken, smsCode] is null',
           () {
-        expect(() => authenticationRepository.authWithPhone(null, null, null),
+        expect(() => authenticationRepository!.authWithPhone(null, null, null),
             throwsAssertionError);
       });
 
       test('returns success', () async {
-        await auth.verifyPhoneNumber(
+        await auth!.verifyPhoneNumber(
             phoneNumber: testPhoneNumber,
-            verificationCompleted: null,
-            verificationFailed: null,
-            codeSent: null,
-            codeAutoRetrievalTimeout: null,
+            verificationCompleted: (_) => null,
+            verificationFailed: (_) => null,
+            codeSent: (_, __) => null,
+            codeAutoRetrievalTimeout: (_) => null,
             autoRetrievedSmsCodeForTesting: testSmsCode);
 
         expect(log, <Matcher>[

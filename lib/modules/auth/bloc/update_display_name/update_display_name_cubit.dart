@@ -9,15 +9,16 @@ part 'update_display_name_state.dart';
 
 class UpdateDisplayNameCubit extends Cubit<UpdateDisplayNameState> {
   UpdateDisplayNameCubit(this._userService)
-      : super(const UpdateDisplayNameState());
+      : assert(_userService != null),
+        super(const UpdateDisplayNameState());
 
-  final UserApiClient _userService;
+  final UserApiClient? _userService;
 
   Future<void> updateDisplayName() async {
     if (!state.status.isValidated) return;
     emit(state.copyWith(status: FormzStatus.submissionInProgress));
     try {
-      await _userService.updateDisplayName(state.displayName.value);
+      await _userService!.updateDisplayName(state.displayName.value);
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
     } catch (_) {
       emit(state.copyWith(status: FormzStatus.submissionFailure));
@@ -29,5 +30,12 @@ class UpdateDisplayNameCubit extends Cubit<UpdateDisplayNameState> {
 
     emit(state.copyWith(
         displayName: displayName, status: Formz.validate([displayName])));
+  }
+
+  bool? isBtnValid() {
+    if (state.status.isValid && state.status.isValidated) {
+      return true;
+    }
+    return false;
   }
 }

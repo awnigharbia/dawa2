@@ -43,7 +43,7 @@ dependencies:
   firebase_auth: ^1.0.0
   firebase_core: ^1.0.0
   fluro: ^2.0.3
-  flutter_bloc: ^7.0.0-nullsafety.3
+  flutter_bloc: ^7.0.0-nullsafety.5
   flutter_rating_bar: ^4.0.0
   flutter_swiper: ^1.1.6
   formz: ^0.4.0-nullsafety.0
@@ -69,12 +69,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  bloc_test: ^8.0.0-nullsafety.2
+  bloc_test: ^8.0.0-nullsafety.5
   build_runner: ^1.11.5
   flutter_launcher_icons: ^0.9.0
   flutter_native_splash: ^1.0.3
   freezed: ^0.14.0+1
-  mockito: ^5.0.0
+  mockito: ^5.0.1
 
 flutter_icons:
   android: "launcher_icon"

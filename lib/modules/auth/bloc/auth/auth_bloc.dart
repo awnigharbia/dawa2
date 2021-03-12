@@ -14,7 +14,8 @@ class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   AuthenticationBloc(
       {@required AuthenticationApiClient? authenticationRepository})
-      : _authenticationRepository =
+      : assert(authenticationRepository != null),
+        _authenticationRepository =
             authenticationRepository ?? AuthenticationApiClient(),
         super(const AuthenticationState.unkown()) {
     _userSubscription = _authenticationRepository!.user

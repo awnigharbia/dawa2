@@ -41,7 +41,6 @@ class ClinicServicesBloc
 
       yield ClinicServicesState.loadSuccess(services: services);
     } catch (e) {
-      print(e);
       yield ClinicServicesState.loadFailure();
     }
   }

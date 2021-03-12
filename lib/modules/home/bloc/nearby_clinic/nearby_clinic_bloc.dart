@@ -52,7 +52,6 @@ class NearbyclinicBloc extends Bloc<NearbyclinicEvent, NearbyclinicState> {
 
       yield NearbyclinicState.loadSuccess(clinics: nearbyClinics);
     } catch (e) {
-      print(e);
       yield NearbyclinicState.loadFailure();
     }
   }

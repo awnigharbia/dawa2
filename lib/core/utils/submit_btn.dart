@@ -31,8 +31,8 @@ class Submit extends StatelessWidget {
         disabledTextColor: Colors.grey,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         color: color ?? ColorSchema.green,
-        onPressed: isSubmit == null ? null : onSubmit,
-        child: isSubmit == null ? Common.buildBtnLoader() : buildText(context),
+        onPressed: isSubmit! ? null : onSubmit,
+        child: isSubmit! ? Common.buildBtnLoader() : buildText(context),
       ),
     );
   }

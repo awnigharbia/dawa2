@@ -16,21 +16,6 @@ class FeedbackCubit extends Cubit<FeedbackState> {
 
   final SettingsRepository _settingsRepository;
 
-  void onTitleChanges(String value) {
-    final title = FeedbackTitle.dirty(value);
-
-    emit(state.copyWith(
-      feedbackTitle: title,
-      status: Formz.validate([title]),
-    ));
-  }
-
-  void onMessageChanges(String value) {
-    final message = FeedbackMessage.dirty(value);
-    emit(state.copyWith(
-        feedbackMessage: message, status: Formz.validate([message])));
-  }
-
   Future sendFeedback() async {
     emit(state.copyWith(status: FormzStatus.submissionInProgress));
     try {
@@ -44,5 +29,28 @@ class FeedbackCubit extends Cubit<FeedbackState> {
     } catch (_) {
       emit(state.copyWith(status: FormzStatus.submissionFailure));
     }
+  }
+
+  void onTitleChanges(String value) {
+    final title = FeedbackTitle.dirty(value);
+
+    emit(state.copyWith(
+      feedbackTitle: title,
+      status: Formz.validate([title, state.feedbackMessage]),
+    ));
+  }
+
+  void onMessageChanges(String value) {
+    final message = FeedbackMessage.dirty(value);
+    emit(state.copyWith(
+        feedbackMessage: message,
+        status: Formz.validate([state.feedbackTitle, message])));
+  }
+
+  bool? isBtnValid() {
+    if (state.status.isValidated && state.status.isValid) {
+      return true;
+    }
+    return false;
   }
 }

@@ -49,9 +49,9 @@ class _SubmitBtn extends StatelessWidget {
       },
       builder: (context, state) {
         return Submit(
-          onSubmit: state.status.isInvalid
-              ? null
-              : () async => await context.read<FeedbackCubit>().sendFeedback(),
+          onSubmit: context.read<FeedbackCubit>().isBtnValid()!
+              ? () async => await context.read<FeedbackCubit>().sendFeedback()
+              : null,
           isSubmit: state.status.isSubmissionInProgress,
         );
       },

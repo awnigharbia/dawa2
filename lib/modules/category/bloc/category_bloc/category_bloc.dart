@@ -14,7 +14,8 @@ part 'category_bloc.freezed.dart';
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   CategoryBloc({
     final CategoryRepository? categoryRepository,
-  })  : _categoryRepository = categoryRepository ?? CategoryRepository(),
+  })  : assert(categoryRepository != null),
+        _categoryRepository = categoryRepository ?? CategoryRepository(),
         super(_CategoryInitial());
 
   final CategoryRepository _categoryRepository;

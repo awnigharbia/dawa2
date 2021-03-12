@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthException {
   final FirebaseAuthException e;
-  AuthResultStatus status;
+  AuthResultStatus? status;
   AuthException(this.e);
 
   handleException() {

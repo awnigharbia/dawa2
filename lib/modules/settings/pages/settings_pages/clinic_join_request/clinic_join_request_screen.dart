@@ -59,10 +59,9 @@ class _SubmitBtn extends StatelessWidget {
       buildWhen: (prev, curr) => prev.status != curr.status,
       builder: (context, state) {
         return Submit(
-          onSubmit: state.status.isInvalid ||
-                  state.status.isSubmissionInProgress
-              ? null
-              : () async => await context.read<ClinicJoinCubit>().joinClinic(),
+          onSubmit: context.read<ClinicJoinCubit>().isBtnValid()!
+              ? () async => await context.read<ClinicJoinCubit>().joinClinic()
+              : null,
           isSubmit: state.status.isSubmissionInProgress,
           name: Localization.of(context)?.tr("join"),
         );

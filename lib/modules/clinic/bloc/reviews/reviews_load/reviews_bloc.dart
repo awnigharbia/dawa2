@@ -59,7 +59,6 @@ class ReviewsBloc extends Bloc<ReviewsEvent, ReviewsState> {
       yield ReviewsState.loadSuccess(
           reviews: reviews, hasReachedMax: hasReachedMax);
     } catch (e) {
-      print(e.runtimeType);
       yield ReviewsState.loadFailure();
     }
   }
@@ -95,7 +94,6 @@ class ReviewsBloc extends Bloc<ReviewsEvent, ReviewsState> {
       yield ReviewsState.loadSuccess(
           reviews: reviewsData.build(), hasReachedMax: hasReachedMax);
     } catch (e) {
-      print(e);
       yield ReviewsState.loadFailure();
     }
   }

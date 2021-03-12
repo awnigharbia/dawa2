@@ -1,5 +1,4 @@
 import 'package:dawa2/localization/doctor_pet_localization.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
@@ -115,15 +114,14 @@ class _NextBtn extends StatelessWidget {
     return BlocBuilder<UpdateDisplayNameCubit, UpdateDisplayNameState>(
       buildWhen: (prev, cur) => prev.status != cur.status,
       builder: (context, state) {
+        final cubit = context.read<UpdateDisplayNameCubit>();
         return GestureDetector(
           behavior: HitTestBehavior.translucent,
-          onTap: state.status.isPure || state.status.isSubmissionInProgress
-              ? null
-              : () async {
-                  await context
-                      .read<UpdateDisplayNameCubit>()
-                      .updateDisplayName();
-                },
+          onTap: context.read<UpdateDisplayNameCubit>().isBtnValid()!
+              ? () async {
+                  await cubit.updateDisplayName();
+                }
+              : null,
           child: SizedBox(
             width: 60.0,
             child: Center(
